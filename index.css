@@ -1,0 +1,14 @@
+body{
+    background-color: #bbbbbb;
+}
+#title{
+color:#015487 ;
+}
+
+.clicked{
+color:#afb2cf;
+}
+
+.btn{
+    cursor: pointer;
+}
