@@ -10,11 +10,9 @@ const USERNAME='username';
 
 function loginSub(event){
     event.preventDefault();//새로고침 하는 것을 막아준다. 기본동작 방지를 위해 
-    const username=loginInput.value;
-    localStorage.setItem(USERNAME,username);
-    console.log(username);
+    localStorage.setItem(USERNAME,loginInput.value);
     loginForm.classList.add(HIDDEN_CLASSNAME);//클래스 추가요!
-    showGreeting(username);
+    showGreeting(loginInput.value);
 }
 
 function showGreeting(username){
@@ -29,7 +27,7 @@ function pwSub(event){
     pwForm.classList.add('hidden');
 }
 
-const savedUsername=localStorage.getItem(USERNAME)
+const savedUsername=localStorage.getItem(USERNAME);
 if (savedUsername===null){
     //show login form
     loginForm.classList.remove(HIDDEN_CLASSNAME);
