@@ -4,17 +4,25 @@ const toDoList=document.querySelector('#todo-list');
 
 const TODO='todo';
 
+function todoDel(event)
+{
+    const li=event.target.parentElement;
+    li.remove();
+
+}
+
 function paintToDo(newTodo){
     const li =document.createElement("li");
     const span=document.createElement("span");
+    span.innerText=newTodo;//가독성 좋게 바로 아래로
     const button=document.createElement("button");
+    button.innerText='X'; 
+    button.addEventListener("click",todoDel);
     li.appendChild(span);
-    li.appendChild(button);
-    span.innerText=newTodo;
-    button.innerText='Delete'; 
-    console.log(li);
+    li.appendChild(button);    
     toDoList.appendChild(li);
 
+    
 }
 
 
