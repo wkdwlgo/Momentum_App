@@ -4,6 +4,7 @@ const clock=document.querySelector("h2#clock");
 
 function getClock()
 {
+    //clock.innerText = new Date().toLocaleTimeString(); 이런 방법도 있다밍
     const date= new Date();
     const hours=String(date.getHours()).padStart(2,"0");//string로 형변환 pad 감싸기
     const minutes=String(date.getMinutes()).padStart(2,"0");
