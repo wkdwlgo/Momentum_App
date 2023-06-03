@@ -1,8 +1,7 @@
 const loginForm =document.querySelector('#login-form');
 const loginInput=document.querySelector('#login-form input');
 const greeting=document.querySelector('#greeting')
-const pwForm=document.querySelector('#pw-form')
-const pwInput=document.querySelector('#pw-form input')
+
 
 
 const HIDDEN_CLASSNAME='hidden';//중요한 정보를 담지 않은 선언은 대문자로
@@ -20,12 +19,7 @@ function showGreeting(username){
     greeting.classList.remove(HIDDEN_CLASSNAME);//클래스 삭제요!
 }
 
-function pwSub(event){
-    event.preventDefault();
-    const pw=pwInput.value;
-    console.log(pw)
-    pwForm.classList.add('hidden');
-}
+
 
 const savedUsername=localStorage.getItem(USERNAME);
 if (savedUsername===null){
@@ -41,4 +35,3 @@ else{
 
 
 
-pwForm.addEventListener('submit',pwSub);
