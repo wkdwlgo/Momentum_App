@@ -17,10 +17,11 @@ function todoDel(event)
 
 }
 
-function paintToDo(newTodo){
+function paintToDo(newTodoObj){
     const li =document.createElement("li");
+    li.id=newTodoObj.id;//li id에 newTodoObj.id 주기
     const span=document.createElement("span");
-    span.innerText=newTodo;//가독성 좋게 바로 아래로
+    span.innerText=newTodoObj.text;//가독성 좋게 바로 아래로
     const button=document.createElement("button");
     button.innerText='X'; 
     button.addEventListener("click",todoDel);
@@ -33,8 +34,12 @@ function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo=toDoInput.value;
     toDoInput.value="";
-    toDos.push(newTodo);
-    paintToDo(newTodo);
+    const newTodoObj={
+        text: newTodo,
+        id: Date.now()
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveToDos();
 }
 
