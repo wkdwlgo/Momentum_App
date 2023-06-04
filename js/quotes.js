@@ -45,10 +45,6 @@ const quote=document.querySelector("#quote span:first-child");
 const author=document.querySelector("#quote span:last-child");
 
 
-
-console.log(Math.floor(Math.random()*10));
-
-
 function getQuote(){
     quote.innerText=`${quotes[Math.floor(Math.random()*quotes.length)].quote}`;
     author.innerText=`-${quotes[Math.floor(Math.random()*quotes.length)].author}-`;
