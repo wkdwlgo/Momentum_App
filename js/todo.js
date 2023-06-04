@@ -4,7 +4,7 @@ const toDoList=document.querySelector('#todo-list');
 
 const TODOS_KEY='todos';
 
-const toDos=[];
+let toDos=[];
 
 function saveToDos(){
     localStorage.setItem(TODOS_KEY,JSON.stringify(toDos));
@@ -26,9 +26,7 @@ function paintToDo(newTodo){
     button.addEventListener("click",todoDel);
     li.appendChild(span);
     li.appendChild(button);    
-    toDoList.appendChild(li);
-
-    
+    toDoList.appendChild(li); 
 }
 
 function handleToDoSubmit(event){
@@ -37,15 +35,16 @@ function handleToDoSubmit(event){
     toDoInput.value="";
     toDos.push(newTodo);
     paintToDo(newTodo);
-    saveToDos()
-;}
+    saveToDos();
+}
 
 toDoForm.addEventListener("submit",handleToDoSubmit);
 
 const savedToDos=localStorage.getItem(TODOS_KEY);
 
-if(saveToDos!==null)
+if(savedToDos!==null)
 {
     const parsedToDos=JSON.parse(savedToDos);
-    parsedToDos.forEach((item) => console.log("this is the turn of", item));// array의 각 item에 대해 function을 실행하게 해줘
+    toDos=parsedToDos;
+    parsedToDos.forEach(paintToDo);// array의 각 item에 대해 function을 실행하게 해줘
 }
